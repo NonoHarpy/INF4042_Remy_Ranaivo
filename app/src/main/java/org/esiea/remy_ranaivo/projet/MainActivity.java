@@ -1,10 +1,13 @@
 package org.esiea.remy_ranaivo.projet;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -14,6 +17,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -71,5 +75,46 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DIALOG_ALERT:
+                // Create out AlterDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Êtes-vous sûr de vouloir quitter l'application ?");
+                builder.setCancelable(true);
+                builder.setPositiveButton("Oui", new OkOnClickListener());
+                builder.setNegativeButton("Non", new CancelOnClickListener());
+                AlertDialog dialog = builder.create();
+                dialog.show();
+        }
+        return super.onCreateDialog(id);
+    }
+
+    private final class CancelOnClickListener implements
+            DialogInterface.OnClickListener {
+        public void onClick(DialogInterface dialog, int which) {
+            Toast.makeText(getApplicationContext(), "L'activité continue",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private final class OkOnClickListener implements
+            DialogInterface.OnClickListener {
+        public void onClick(DialogInterface dialog, int which) {
+            MainActivity.this.finish();
+        }
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            showDialog(DIALOG_ALERT);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     public static final String POKEMON_UPDATE="com.octip.cours.inf4042_11.BEERS_UPDATE";
+    private static final int DIALOG_ALERT = 10;
 }
