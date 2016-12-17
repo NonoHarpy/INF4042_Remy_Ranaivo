@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,7 +39,8 @@ public class SecondActivity extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter(MainActivity.BEERS_UPDATE);
         LocalBroadcastManager.getInstance(this).registerReceiver(new BeerUpdate(),intentFilter);
 
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         /*BeerDbHelper db_helper = new BeerDbHelper(this);
         SQLiteDatabase db = db_helper.getWritableDatabase();
@@ -50,6 +53,13 @@ public class SecondActivity extends AppCompatActivity {
         // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(BeerDbHelper.BeerEntry.TABLE_NAME, null, values);*/
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivityForResult(myIntent,0);
+        return true;
     }
 
     public JSONArray getBiersFromFile(){

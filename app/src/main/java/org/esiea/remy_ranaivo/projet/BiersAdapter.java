@@ -37,7 +37,7 @@ public class BiersAdapter extends RecyclerView.Adapter<BiersAdapter.BierHolder> 
     public void onBindViewHolder(BierHolder holder, int position) {
 
         try {
-            holder.name.setText("name : "+biers.getJSONObject(position).getString("name")+ "\n" +biers.getJSONObject(position).getString("attack"));
+            holder.name.setText("Nom : "+biers.getJSONObject(position).getString("Nom")+ "\n" +biers.getJSONObject(position).getString("Attaque"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
