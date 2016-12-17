@@ -29,15 +29,15 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        rv = (RecyclerView) findViewById(R.id.rv_biere);
+        rv = (RecyclerView) findViewById(R.id.rv_pokedex);
         rv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false));
 
-        rv.setAdapter(new BiersAdapter(getBiersFromFile()));
+        rv.setAdapter(new PokedexAdapter(getBiersFromFile()));
 
-        GetBeersService.startActionBeer(this);
+        GetPokedexService.startActionPokedex(this);
 
-        IntentFilter intentFilter = new IntentFilter(MainActivity.BEERS_UPDATE);
-        LocalBroadcastManager.getInstance(this).registerReceiver(new BeerUpdate(),intentFilter);
+        IntentFilter intentFilter = new IntentFilter(MainActivity.POKEMON_UPDATE);
+        LocalBroadcastManager.getInstance(this).registerReceiver(new PokedexUpdate(),intentFilter);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);

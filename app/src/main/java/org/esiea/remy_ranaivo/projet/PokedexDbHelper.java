@@ -9,7 +9,7 @@ import android.provider.BaseColumns;
  * Created by nora on 07/11/16.
  */
 
-public class BeerDbHelper extends SQLiteOpenHelper {
+public class PokedexDbHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "FeedReader.db";
 
@@ -22,7 +22,7 @@ public class BeerDbHelper extends SQLiteOpenHelper {
                     BeerEntry.CDESC + TEXT_TYPE + " )";
 
     //Constructeur
-    public BeerDbHelper(Context context) {
+    public PokedexDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -37,9 +37,9 @@ public class BeerDbHelper extends SQLiteOpenHelper {
     }
 
     public static class BeerEntry implements BaseColumns {
-        public static final String TABLE_NAME = "beer_entry";
-        public static final String CBEERNAME= "beer_name";
-        public static final String CDESC = "beer_description";
+        public static final String TABLE_NAME = "pokedex_entry";
+        public static final String CBEERNAME= "pokedex_name";
+        public static final String CDESC = "pokedex_description";
     }
 
 }

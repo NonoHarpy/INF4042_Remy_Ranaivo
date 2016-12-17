@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Project</string>
     <string name="button_text">Click</string>
+    <string name="pokemon_name"><b>Nom :</b></string>
+    <string name="pokemon_pv"><b>PV :</b></string>
+    <string name="pokemon_attack"><b>Attaque :</b></string>
+    <string name="pokemon_defense"><b>Defense :</b></string>
+    <string name="pokemon_type"><b>Type :</b></string>
 </resources>

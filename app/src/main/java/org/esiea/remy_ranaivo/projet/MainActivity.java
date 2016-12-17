@@ -71,5 +71,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
     }
-    public static final String BEERS_UPDATE="com.octip.cours.inf4042_11.BEERS_UPDATE";
+    public static final String POKEMON_UPDATE="com.octip.cours.inf4042_11.BEERS_UPDATE";
 }

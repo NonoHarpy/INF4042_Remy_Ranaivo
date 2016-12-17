@@ -6,7 +6,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/rv_bier_element_name"/>
+        android:id="@+id/rv_pokedex_element_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:id="@+id/rv_pokedex_title_name"/>
 
 
 

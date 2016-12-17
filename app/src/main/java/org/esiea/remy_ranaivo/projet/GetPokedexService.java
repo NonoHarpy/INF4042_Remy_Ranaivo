@@ -20,15 +20,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class GetBeersService extends IntentService {
+public class GetPokedexService extends IntentService {
     // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
-    private static final String GET_ALL_BEER = "org.esiea.remy_ranaivo.projet.action.GET_ALL_BEER";
+    private static final String GET_ALL_POKEDEX = "org.esiea.remy_ranaivo.projet.action.GET_ALL_POKEDEX";
 
 
 
 
-    public GetBeersService() {
-        super("GetBeersService");
+    public GetPokedexService() {
+        super("GetPokedexService");
     }
 
     /**
@@ -38,9 +38,9 @@ public class GetBeersService extends IntentService {
      * @see IntentService
      */
     // TODO: Customize helper method
-    public static void startActionBeer(Context context) {
-        Intent intent = new Intent(context, GetBeersService.class);
-        intent.setAction(GET_ALL_BEER);
+    public static void startActionPokedex(Context context) {
+        Intent intent = new Intent(context, GetPokedexService.class);
+        intent.setAction(GET_ALL_POKEDEX);
         context.startService(intent);
 
 
@@ -53,14 +53,14 @@ public class GetBeersService extends IntentService {
         Log.i("tag","test");
         if (intent != null) {
             final String action = intent.getAction();
-            if (GET_ALL_BEER.equals(action)) {
-              handleActionBeers();
+            if (GET_ALL_POKEDEX.equals(action)) {
+              handleActionPokedex();
             }
         }
     }
 
 
-    private void handleActionBeers() {
+    private void handleActionPokedex() {
         // TODO: Handle action Beer
         Log.d("TAG","Nom du thread:"+Thread.currentThread().getName());
         URL url=null;
@@ -71,9 +71,9 @@ public class GetBeersService extends IntentService {
             conn.connect();
             if(HttpURLConnection.HTTP_OK==conn.getResponseCode()){
                 copyInputStreamToFile(conn.getInputStream(),new File(getCacheDir(),"pokemon.json"));
-                Log.d("TAG","Bieres json téléchargées");
+                Log.d("TAG","Pokemon json téléchargées");
 
-                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(MainActivity.BEERS_UPDATE));
+                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(MainActivity.POKEMON_UPDATE));
             }
 
 
