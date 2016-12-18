@@ -2,7 +2,9 @@ package org.esiea.remy_ranaivo.projet;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -52,21 +54,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void notification_test(){
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.pokeball)
-                        .setContentTitle("Pokedex");
-
+        Intent myIntent = new Intent(this, MainActivity.class);
+        PendingIntent myPendingIntent = PendingIntent.getActivity(this, 0, myIntent, 0);
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        mNotificationManager.notify(1, mBuilder.build());
-
+        Notification notif = new Notification.Builder(this)
+                .setContentTitle("Pokedex")
+                .setSmallIcon(R.mipmap.pokeball)
+                .build();
+        mNotificationManager.notify(1, notif);
 
     }
 
 
     public void date_fct(View v){
-        Toast.makeText(this, "Toast test : coucou", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Affichage du calendrier", Toast.LENGTH_SHORT).show();
          dpd.show();
         notification_test();
     }
