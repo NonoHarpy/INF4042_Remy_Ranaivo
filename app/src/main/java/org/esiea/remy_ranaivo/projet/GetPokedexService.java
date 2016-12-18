@@ -71,7 +71,7 @@ public class GetPokedexService extends IntentService {
             conn.connect();
             if(HttpURLConnection.HTTP_OK==conn.getResponseCode()){
                 copyInputStreamToFile(conn.getInputStream(),new File(getCacheDir(),"pokemon.json"));
-                Log.d("TAG","Pokemon json téléchargées");
+                Log.d("TAG","Pokedex json téléchargées");
 
                 LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(MainActivity.POKEMON_UPDATE));
             }

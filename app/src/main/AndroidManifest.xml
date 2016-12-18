@@ -20,7 +20,7 @@
         <activity android:name=".SecondActivity" />
 
         <service
-            android:name=".GetBeersService"
+            android:name=".GetPokedexService"
             android:exported="false"></service>
     </application>
 

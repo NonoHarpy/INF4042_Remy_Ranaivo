@@ -14,7 +14,6 @@ public class PokedexUpdate extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("tag",intent.getAction());
-        Toast.makeText(context,"download is finished",Toast.LENGTH_LONG).show();
         ((PokedexAdapter) MainActivity.rv.getAdapter()).setNewPokedex(PokedexAdapter.pokedex);
     }
 }
