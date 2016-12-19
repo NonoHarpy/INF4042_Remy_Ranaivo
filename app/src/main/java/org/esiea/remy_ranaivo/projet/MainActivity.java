@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void date_fct(View v){
-        Toast.makeText(this, "Affichage du calendrier", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,R.string.calendrier, Toast.LENGTH_SHORT).show();
          dpd.show();
         notification_test();
     }
@@ -85,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
             case DIALOG_ALERT:
                 // Create out AlterDialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("Êtes-vous sûr de vouloir quitter l'application ?");
+                builder.setMessage(R.string.confirmation);
                 builder.setCancelable(true);
-                builder.setPositiveButton("Oui", new OkOnClickListener());
-                builder.setNegativeButton("Non", new CancelOnClickListener());
+                builder.setPositiveButton(R.string.yes, new OkOnClickListener());
+                builder.setNegativeButton(R.string.no, new CancelOnClickListener());
                 AlertDialog dialog = builder.create();
                 dialog.show();
         }
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     private final class CancelOnClickListener implements
             DialogInterface.OnClickListener {
         public void onClick(DialogInterface dialog, int which) {
-            Toast.makeText(getApplicationContext(), "L'activité continue",
+            Toast.makeText(getApplicationContext(), R.string.activity,
                     Toast.LENGTH_LONG).show();
         }
     }

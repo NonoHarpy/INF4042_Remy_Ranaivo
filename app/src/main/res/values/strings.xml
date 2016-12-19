@@ -6,4 +6,10 @@
     <string name="pokemon_attack"><b>Attaque :</b></string>
     <string name="pokemon_defense"><b>Defense :</b></string>
     <string name="pokemon_type"><b>Type :</b></string>
+
+    <string name="confirmation">The Application will be close.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="activity">action cancelled</string>
+    <string name="calendrier">Here is the calendar</string>
 </resources>
