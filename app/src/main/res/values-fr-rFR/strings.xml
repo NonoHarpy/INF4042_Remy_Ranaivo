@@ -13,5 +13,6 @@
     <string name="yes">Oui</string>
     <string name="no">Non</string>
     <string name="activity">L\'activité continue</string>
+    <string name="json">Fichier JSON téléchargé</string>
 
 </resources>

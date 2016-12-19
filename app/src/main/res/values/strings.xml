@@ -12,4 +12,5 @@
     <string name="no">No</string>
     <string name="activity">action cancelled</string>
     <string name="calendrier">Here is the calendar</string>
+    <string name="json">JSON file downloaded</string>
 </resources>
